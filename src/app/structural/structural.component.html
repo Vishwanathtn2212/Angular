@@ -1,0 +1,18 @@
+<div>
+        <h4>{{encorContent}}</h4>
+    <h1>
+        STRUCTURAL DIRECTIVES
+    </h1>
+    <h4>Structural directives are one which helps is adding or removing html elements from DOM</h4>
+    <h4>Three most common structural directives are</h4>
+    <div *ngFor="let directive of directives; index as i">
+        {{i+1}}<button (click)="select(directive)">{{directive}}</button>
+    </div>
+    <div>
+        <h1>COMPONENT INTERACTION</h1>
+        <p>Data can be send from parent to child and vice-versa, with the help of @Input() and @Output() decorators</p>
+        <p>For data to send from child to parent,eventEmitter is necessary.</p>
+    </div>
+    <button (click)="fireEvent()">Exit</button>
+</div>
+

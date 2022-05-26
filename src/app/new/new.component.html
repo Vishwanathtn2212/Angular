@@ -1,0 +1,65 @@
+<div>
+    <h3>{{parentData}}</h3>
+    <div style="background-color: aqua;">
+        <h1>INTERPOLATION</h1>
+        <h2>{{name}} </h2>
+        <h2>{{"Welcome " + "again"}}</h2>
+        <h3>{{name.length}}</h3>
+        <h3>{{name.toUpperCase()}}</h3>
+        <h3>{{greetUser()}}</h3>
+    </div>
+    <div style="background-color: bisque;">
+        <h1>PROPERTY BINDING</h1>
+        <div style="text-align: left;">
+            <li>Attributes and Properties are not the same</li>
+            <li>Attributes are defined by html</li>
+            <li>Properties are defined by the DOM</li>
+            <li>Attributes initialize DOM properties and they they are done. Attribute values cannot change once they are initialized</li>
+            <li>Property values however can change</li>
+            <li>HTML attribute value specifies the initial value(value attribute)</li>
+            <li>DOM value property is current value(value property)</li>
+        </div>
+        <br>
+        <div>
+            <input [id]="itsId" type="text" value="Angular" style="width: 25%; height: 30px; font-size:medium;">
+            <input [disabled]="false" type="text" value="Angular(data binding)" style="width: 25%; height: 30px; font-size:medium;">
+            <input disabled={{false}} type="text" value="Angular" style="width: 25%; height: 30px; font-size:medium;">
+            <h4>Interpolation works only for the strings it fails to work for boolean value properties so data binding is necessary.</h4>
+            <h4>We can also use bind-attrinute_name instead of []</h4>
+        </div>
+    </div>
+    <div>
+        <h1>CLASS BINDING</h1>
+        <h4 [class]="successClass">Demonstration of the class binding in  angular</h4>
+        <h4 class="text-special" [class]="successClass">when we use class attribute and class binding, class attribute becomes dummy, as it is depicted in this line.(i.e The sentence suuposed to be italized which is not hsppened here) need to clarify</h4>
+        <h4 [class.text-danger]='hasError'>Demonstrating class-binding based on evaluation of the expression</h4>
+        <h4 [ngClass]="messageClasses">Demotexttextnstration ngClass directive used for class binding which dynamically applies the classes for componenets</h4>
+    </div>
+    <div>
+        <h1 [style.color]="'blue'">STYLE BINDING</h1>
+        <h4 [style.color]="hasError? 'red' : 'green'">This section demonstrates the inline style binding for the htmll elements</h4>
+        <h4 [style.color]="highlightColor">we can also assign component class properties during binding</h4>
+        <h4 [ngStyle]="titleStyle">Style binding using ngStyle directive</h4>
+    </div>
+    <div>
+        <h1>EVENT BINDING</h1>
+        <h4>Demonstrating the event binding</h4>
+        <button (click)="onClick()">Greet</button>{{greeting1}}<br>
+        <button (click)="forClickInfo($event)">Know</button>{{greeting2}}<br>
+        <button (click)="greeting3='without assigning handler'">More</button>{{greeting3}}
+    </div>
+    <div>
+        <h1>TEMPLATE REFERENCE VARIABLES</h1>
+        <h4>These reference variables are used to refere to the DOM element and its entire properties</h4>
+        <input #myInput type="text">
+        <button (click)="logMessage(myInput.value)">Log</button>
+    </div>
+    <div>
+        <h1>TWO WAY BINDING</h1>
+        <h4>It keeps model and template(view) in sync with each other</h4>
+        <input [(ngModel)]="twoValue" style="width: 300px; height: 30px" type="text">
+        {{twoValue}}
+    </div>
+    <button (click)="fireEvent()">Exit</button>
+</div>
+

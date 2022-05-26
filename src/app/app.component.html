@@ -1,0 +1,27 @@
+<div style="text-align: center;">
+  <h1>Welcome Bro!</h1>
+  <h3>{{message}}</h3>
+  <ng-template #elseBlock>
+    <h3>Please confirm you are a new Angular Enthusiasist!</h3>
+    <button (click)="confirmtoShow()">Yes I am!</button>
+  </ng-template>
+     
+  <ng-template #thenBlock>
+      <button (click)="basicSection()">BASIC</button>
+      <button (click)="directiveSection()">STRUCTURAL DIRECTIVES</button>
+      <button (click)="section=''">HOME</button>
+      <div [ngSwitch]="section">
+          <div *ngSwitchCase="'basic'">
+            <app-new (childEvent)="message=$event" [parentData]="encouraging"></app-new>
+          </div>
+          <div *ngSwitchCase="'directives'">
+            <app-structural (childEvent)="message=$event" [parentData]="encouraging"></app-structural>
+          </div>
+          <div *ngSwitchDefault>
+            <h4>Select any of the section from above! </h4>
+          </div>
+        </div>
+  </ng-template>
+  <div *ngIf="displayContent; then thenBlock; else elseBlock"></div>
+  
+</div>
